@@ -86,6 +86,7 @@ defmodule Adbc.Column do
           key: %Adbc.Column{},
           value: %Adbc.Column{}
         }
+  @type struct_t :: :struct | {:struct, %Adbc.Column{}}
   @type data_type ::
           :boolean
           | signed_integer
@@ -102,7 +103,7 @@ defmodule Adbc.Column do
           | :large_string
           | decimal_t
           | {:fixed_size_binary, non_neg_integer()}
-          | :struct
+          | struct_t
           | :date32
           | :date64
           | time_t
